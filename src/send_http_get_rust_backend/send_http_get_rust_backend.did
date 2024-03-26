@@ -1,3 +1,10 @@
+type WalletSymbol = variant {
+    TRON;
+    SOL;
+};
+
 service : {
-    "greet": (text) -> (text) query;
+    "new_wallet": (WalletSymbol) -> (variant { Ok: text; Err: text });
+    "list_wallets": (WalletSymbol) -> (vec text);
+    "get_icp_usd_exchange": () -> (text);
 }
